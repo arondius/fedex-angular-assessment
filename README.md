@@ -6,10 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
@@ -18,10 +14,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Further explanation
+The assesment asked to submit the form to the back end without the password value. I have taken the liberty to include this value as this would make sense. Normally I would ask a product owner (during a refinement) wether omitting a password was corect.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Furthermore I assumed this form would be part of a larger application, so I have added a mapper to map the ViewModel to the DTO model. As I was not sure if the password value would have to be included in the DTO. Using this pattern allows you to decouple the ViewModel and DTO model.
 
-## Further help
+Email validation is done using the standard Angular email validation. As there is no correct way to validate an email address by regex and there are no business requirements set I have chosen this simple option which covers most cases.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The validation of the form is "soft" only so purely for UX purposes. Real validation should be handled on the back end.
