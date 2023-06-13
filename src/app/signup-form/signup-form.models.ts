@@ -1,0 +1,1 @@
+export type IFormStatus = 'idle' | 'success' | 'error';

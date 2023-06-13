@@ -1,0 +1,69 @@
+<mat-card *ngIf="formStatus === 'idle'; else submitted">
+  <mat-card>
+    <mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Sign Up</mat-card-title>
+      </mat-card-header>
+      <form
+        [formGroup]="signUpForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="First name"
+            formControlName="firstName"
+          >
+          <mat-error *ngIf="signUpForm.controls.firstName.errors?.['required']">First name is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Last name"
+            formControlName="lastName"
+          >
+          <mat-error *ngIf="signUpForm.controls.lastName.errors?.['required']">Last name is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+          >
+          <mat-error *ngIf="signUpForm.controls.email.errors?.['required']">Email is required.</mat-error>
+          <mat-error *ngIf="signUpForm.controls.email.errors?.['email']">Invalid email format.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            type="password"
+          >
+          <mat-error *ngIf="signUpForm.controls.password.errors?.['required']">Password is required.</mat-error>
+          <mat-error *ngIf="signUpForm.controls.password.errors?.['invalidPassword']">Invalid password
+            format.</mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="signUpForm.invalid"
+        >Sign Up</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-card>
+<ng-template #submitted>
+  <div *ngIf="formStatus === 'success'; else error">
+    <h2>User registered successfully!</h2>
+  </div>
+  <ng-template #error>
+    <h2>An error occurred while registering the user.</h2>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
+  </ng-template>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onResetForm()"
+  >Back to the form</button>
+</ng-template>
