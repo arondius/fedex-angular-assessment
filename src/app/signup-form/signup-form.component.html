@@ -26,7 +26,7 @@
               transform="translate(-.81 -.354)"
             />
           </svg>
-        <mat-card-title>Sign Up</mat-card-title>
+          <mat-card-title>Sign Up</mat-card-title>
         </div>
       </mat-card-header>
       <form
@@ -36,7 +36,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="First name"
+            placeholder="First name *"
             formControlName="firstName"
           >
           <mat-error *ngIf="signUpForm.controls.firstName.errors?.['required']">First name is required.</mat-error>
@@ -44,7 +44,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Last name"
+            placeholder="Last name *"
             formControlName="lastName"
           >
           <mat-error *ngIf="signUpForm.controls.lastName.errors?.['required']">Last name is required.</mat-error>
@@ -52,7 +52,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Email"
+            placeholder="Email *"
             formControlName="email"
           >
           <mat-error *ngIf="signUpForm.controls.email.errors?.['required']">Email is required.</mat-error>
@@ -61,7 +61,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Password"
+            placeholder="Password *"
             formControlName="password"
             type="password"
           >
@@ -69,6 +69,7 @@
           <mat-error *ngIf="signUpForm.controls.password.errors?.['invalidPassword']">Invalid password
             format.</mat-error>
         </mat-form-field>
+        <p>Fields marked with * are required.</p>
         <button
           mat-raised-button
           color="primary"
