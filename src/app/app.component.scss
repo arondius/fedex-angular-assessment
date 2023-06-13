@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+app-signup-form {
+  max-width: 440px;
+}
